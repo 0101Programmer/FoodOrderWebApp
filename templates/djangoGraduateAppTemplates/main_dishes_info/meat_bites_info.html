@@ -1,0 +1,80 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% block title %} DjangFood {% endblock %}
+{% block header %} {{ food_page_name }} {% endblock %}
+{% block content %}
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .block{
+        display: flex;
+        align-items: center;
+    }
+    .block__pict > img{
+        max-width: 1000px;
+        max-height: 1000px;
+    }
+    .block__caption{
+        padding: 15px;
+    }
+</style>
+
+<div class="block">
+    <div class="block__pict">
+        <img src="../media/hot_media/meat_bites.png" width="320" height="320">
+    </div>
+    <div class="block__caption">
+        Хотите ощутить рядом частичку Армении?
+        Вам напомнят ее наши блюда, приготовленные по рецептам настоящей армянской кухни.
+        А близкие и родные, находящиеся рядом, с удовольствием разделят с вами этот обед или ужин.
+        Мы предлагаем вам попробовать наше мясное ассорти.
+        <br><br>
+        Энергетическая ценность на 100 г:
+        <br>
+        365 кКал
+        <br><br>
+        Пищевая ценность на 100 г:
+        <br>
+        Белки: 27.1 г
+        <br>
+        Жиры: 22.6 г
+        <br>
+        Углеводы: 15.8 г
+        <br><br>
+        Вес порции:
+        <br>
+        278 г
+    </div>
+</div>
+
+<br><br>
+
+{% if client %}
+<form method="post">
+    {% csrf_token %}
+    <label for="food_order_amount">Введите количество:</label>
+    <br>
+    <input type="number" min="1" value="1" id="food_order_amount" name="food_order_amount" maxlength="30" required>
+    <br><br>
+    <button class="btn btn-success" name="add_product"  type="submit">Добавить в заказ</button>
+    {% if show_food_order_amount %}
+    <button class="btn btn-success" name="remove_product"  type="submit">Убрать из заказа</button>
+    {% endif %}
+</form>
+{% endif %}
+
+{% if show_food_order_amount %}
+<br>
+Уже в заказе:
+<br>
+{{ show_food_order_amount }} шт.
+<br><br>
+{% else %}
+<br>
+{% endif %}
+<a class="btn btn-danger" href="/main_dishes_page" role="button">Назад к горячим блюдам</a>
+<br><br>
+<a class="btn btn-info btn-sm" href="/" role="button">На главную</a>
+{% endblock %}

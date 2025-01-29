@@ -1,0 +1,47 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% block title %} DjangFood {% endblock %}
+{% block header %} Напитки {% endblock %}
+{% block content %}
+<style>
+    .scale {
+    transition: 1s;
+    }
+    .scale:hover {
+    transform: scale(1.2);
+    }
+    figure {
+    display: inline-block;
+    }
+</style>
+<figure>
+    <a href="/cof_info">
+        <img src="../media/drinks_media/cof.png" class="scale">
+    </a>
+    <figcaption class="text-center">Кофе <br> 185 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/ju_info">
+        <img src="../media/drinks_media/ju.png" class="scale">
+    </a>
+    <figcaption class="text-center">Сок <br> 89 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/milksh_info">
+        <img src="../media/drinks_media/milksh.png" class="scale">
+    </a>
+    <figcaption class="text-center">Милкшейк <br> 105 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/zero_info">
+        <img src="../media/drinks_media/zero.png" class="scale">
+    </a>
+    <figcaption class="text-center">Кола зеро <br> 69 руб.</figcaption>
+</figure>
+<br><br>
+<a class="btn btn-info" href="/main_dishes_page" role="button">Назад</a>
+<a class="btn btn-info" href="/" role="button">На главную</a>
+<a class="btn btn-info" href="/desserts_info" role="button">Далее</a>
+{% endblock %}

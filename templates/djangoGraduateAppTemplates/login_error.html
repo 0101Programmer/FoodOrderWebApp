@@ -1,0 +1,11 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% block title %} DjangFood - авторизация прошла неуспешно {% endblock %}
+{% block header %} Кажется что-то пошло не так {% endblock %}
+{% block content %}
+<p>
+   Возможно, вы ввели некорреткные данные или такого пользователя не существует
+</p>
+<button class="btn btn-info" onclick="window.history.back()">Попробовать ещё раз</button>
+<br><br>
+<a class="btn btn-info" href="/" role="button">На главную</a>
+{% endblock %}

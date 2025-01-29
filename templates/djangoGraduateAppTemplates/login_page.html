@@ -1,0 +1,19 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% block title %} DjangFood - авторизация {% endblock %}
+{% block header %} Войдите в личный кабинет, чтобы посмотреть свои бонусы {% endblock %}
+{% block content %}
+<form method = "post", enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for field in form %}
+    <br>
+    {{ field.label_tag }}
+    <br>
+    {{ field }}
+    <br>
+    {% endfor %}
+    <br>
+    <button class="btn btn-info btn-sm" type="submit">Войти</button>
+    <br><br>
+    <a class="btn btn-primary btn-sm" href="/" role="button">На главную</a>
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% load static %}
+{% block content %}
+<link href="{% static "djangoGraduateAppStatic/home_page.css" %}" rel="stylesheet">
+
+<div class="background">
+  <img src="../media/backgrounds_media/food_food.jpg">
+</div>
+ <div class="jumbotron">
+     <h1 class="display-4">Закажите у нас прямо сейчас!</h1>
+     {% if client %}
+     <a class="btn btn-success" href="/user_data_page" role="button">Перейти в личный кабинет</a>
+     {% else %}
+     <p class="lead">Мы начисляем бонусы постоянным клиентам и делаем скидки для новых пользователей.</p>
+     <a class="btn btn-warning" href="/registration_page" role="button">Я новый клиент</a>
+     <a class="btn btn-info" href="/login_page" role="button">Авторизация</a>
+     {% endif %}
+     <hr class="my-4">
+     <p>С нашим меню вы можете ознакомиться здесь:</p>
+     <div class="d-grid gap-2 d-md-block">
+         <a class="btn btn-primary btn-lg" href="/pizza_page" role="button">Пицца</a>
+         <br><br>
+         <a class="btn btn-primary btn-lg" href="/main_dishes_page" role="button">Горячее</a>
+         <br><br>
+         <a class="btn btn-primary btn-lg" href="/drinks_page" role="button">Напитки</a>
+         <br><br>
+         <a class="btn btn-primary btn-lg" href="/desserts_info" role="button">Десерты</a>
+     </div>
+ </div>
+{% endblock %}

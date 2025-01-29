@@ -1,0 +1,57 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% block title %} DjangFood {% endblock %}
+{% block header %} Для тех, кто любит погорячее {% endblock %}
+{% block content %}
+<style>
+    .scale {
+    transition: 1s;
+    }
+    .scale:hover {
+    transform: scale(1.2);
+    }
+    figure {
+    display: inline-block;
+    }
+</style>
+<figure>
+    <a href="/dolma_info">
+        <img src="../media/hot_media/dolma.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Долма <br> 375 руб.</figcaption>
+</figure>
+<figure>
+    <a href="/falaf_info">
+        <img src="../media/hot_media/falaf.png" class="scale">
+    </a>
+    <figcaption class="text-center">Фалафель <br> 205 руб.</figcaption>
+</figure>
+<figure>
+    <a href="/meat_bites_info">
+        <img src="../media/hot_media/meat_bites.png" class="scale">
+    </a>
+    <figcaption class="text-center">Шашлычная тарелка <br> 1300 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/plov_info">
+        <img src="../media/hot_media/plov.png" class="scale">
+    </a>
+    <figcaption class="text-center">Плов <br> 550 руб.</figcaption>
+</figure>
+<figure>
+    <a href="/potato_info">
+        <img src="../media/hot_media/potato.png" class="scale">
+    </a>
+    <figcaption class="text-center">Картофельные оладьи <br> 234 руб.</figcaption>
+</figure>
+<figure>
+    <a href="/ragu_info">
+        <img src="../media/hot_media/ragu.png" class="scale">
+    </a>
+    <figcaption class="text-center">Овощное рагу с мясом <br> 404 руб.</figcaption>
+</figure>
+<br><br>
+<a class="btn btn-info" href="/pizza_page" role="button">Назад</a>
+<a class="btn btn-info" href="/" role="button">На главную</a>
+<a class="btn btn-info" href="/drinks_page" role="button">Далее</a>
+{% endblock %}

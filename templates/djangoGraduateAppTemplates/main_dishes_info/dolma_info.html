@@ -1,0 +1,82 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% block title %} DjangFood {% endblock %}
+{% block header %} {{ food_page_name }} {% endblock %}
+{% block content %}
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .block{
+        display: flex;
+        align-items: center;
+    }
+    .block__pict > img{
+        max-width: 1000px;
+        max-height: 1000px;
+    }
+    .block__caption{
+        padding: 15px;
+    }
+</style>
+
+<div class="block">
+    <div class="block__pict">
+        <img src="../media/hot_media/dolma.jpg" width="320" height="320">
+    </div>
+    <div class="block__caption">
+        Традиционное кавказское блюдо:
+        в молодые виноградные листья (25%)
+        завернута сочная начинка из фарша (60%) и
+        пропаренного риса (10%).
+        Именно такая пропорция является оптимальной,
+        если готовить долму из говядины.
+        Лук, черный перец и орегано придают блюду яркий, пикантный вкус.
+        <br><br>
+        Энергетическая ценность на 100 г:
+        <br>
+        216 кКал
+        <br><br>
+        Пищевая ценность на 100 г:
+        <br>
+        Белки: 10.7 г
+        <br>
+        Жиры: 15.3 г
+        <br>
+        Углеводы: 8.8 г
+        <br><br>
+        Вес порции:
+        <br>
+        205 г
+    </div>
+</div>
+<br><br>
+
+{% if client %}
+<form method="post">
+    {% csrf_token %}
+    <label for="food_order_amount">Введите количество:</label>
+    <br>
+    <input type="number" min="1" value="1" id="food_order_amount" name="food_order_amount" maxlength="30" required>
+    <br><br>
+    <button class="btn btn-success" name="add_product"  type="submit">Добавить в заказ</button>
+    {% if show_food_order_amount %}
+    <button class="btn btn-success" name="remove_product"  type="submit">Убрать из заказа</button>
+    {% endif %}
+</form>
+{% endif %}
+
+{% if show_food_order_amount %}
+<br>
+Уже в заказе:
+<br>
+{{ show_food_order_amount }} шт.
+<br><br>
+{% else %}
+<br>
+{% endif %}
+<a class="btn btn-danger" href="/main_dishes_page" role="button">Назад к горячим блюдам</a>
+<br><br>
+<a class="btn btn-info btn-sm" href="/" role="button">На главную</a>
+{% endblock %}

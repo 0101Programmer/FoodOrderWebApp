@@ -1,0 +1,46 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% block title %} DjangFood {% endblock %}
+{% block header %} Всем любителям пиццы на эту страницу {% endblock %}
+{% block content %}
+<style>
+    .scale {
+    transition: 1s;
+    }
+    .scale:hover {
+    transform: scale(1.2);
+    }
+    figure {
+    display: inline-block;
+    }
+</style>
+<figure>
+    <a href="/marg_info">
+        <img src="../media/pizza_media/marg.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Маргарита <br> 550 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/mush_info">
+        <img src="../media/pizza_media/mush.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Грибная <br> 670 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/pep_info">
+        <img src="../media/pizza_media/pep.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Пепперони <br> 405 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/sea_info">
+        <img src="../media/pizza_media/sea.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Морепродукты <br> 330 руб.</figcaption>
+</figure>
+<br><br>
+<a class="btn btn-info" href="/" role="button">На главную</a>
+<a class="btn btn-info" href="/main_dishes_page" role="button">Далее</a>
+{% endblock %}

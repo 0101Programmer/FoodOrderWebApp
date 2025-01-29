@@ -1,0 +1,75 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% load static %}
+{% block title %} Личный кабинет клиента DjangFood {% endblock %}
+{% block header %} Ознакомьтесь со своими активными заказами {% endblock %}
+{% block content %}
+<link href="{% static "djangoGraduateAppStatic/table1_style.css" %}" rel="stylesheet">
+
+{% if food %}
+  <table>
+    <caption>
+      Текущие заказы
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Позиция</th>
+        <th scope="col">Количество</th>
+        <th scope="col">Сумма</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for key, value in food.items %}
+      <tr>
+        <th scope="row"><a href="{{ value.2 }}" title="Перейти на страницу блюда">{{ key }}</a></th>
+        <td>{{ value.0 }}</td>
+        <td>{{ value.1 }} руб.</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <th scope="row" colspan="2">
+          {% if  delivery %}
+          Итого (с учётом доставки)
+          {% else %}
+          Итого
+          {% endif %}
+        </th>
+        <td>{{ total }} руб.</td>
+      </tr>
+      <tr>
+        <th scope="row" colspan="2">
+          Ваша скидка
+        </th>
+        <td>{{ discount }}%</td>
+      </tr>
+      <tr>
+        <th scope="row" colspan="2">
+          К оплате
+        </th>
+        <td>{{ total_discount }} руб.</td>
+      </tr>
+    </tfoot>
+  </table>
+  {% if  delivery %}
+  Сейчас сумма заказа менее 1500 руб. и
+  доставка составит {{ delivery }} руб.
+  <br>
+  Предлагаем вам заказать что-нибудь ещё
+  <br>
+  {% endif %}
+  <br>
+  <form method="post">
+      {% csrf_token %}
+      <button disabled class="btn btn-success" name="cash"  type="submit">Оплатить</button>
+      <button class="btn btn-danger" name="clean_cart"  type="submit">Очистить корзину</button>
+  </form>
+  <br>
+{% else %}
+В корзине пусто, предлагаем вам что-нибудь заказать!
+<br><br>
+{% endif %}
+
+<button class="btn btn-info" onclick="window.history.back()">Назад</button>
+<a class="btn btn-info" href="/" role="button">На главную</a>
+{% endblock %}

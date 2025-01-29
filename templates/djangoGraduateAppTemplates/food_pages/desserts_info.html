@@ -1,0 +1,46 @@
+{% extends "djangoGraduateAppTemplates/base.html" %}
+{% block title %} DjangFood {% endblock %}
+{% block header %} Десерты {% endblock %}
+{% block content %}
+<style>
+    .scale {
+    transition: 1s;
+    }
+    .scale:hover {
+    transform: scale(1.2);
+    }
+    figure {
+    display: inline-block;
+    }
+</style>
+<figure>
+    <a href="/bun_info">
+        <img src="../media/desserts_media/bun.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Слойка с начинкой <br> 50 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/cookie_info">
+        <img src="../media/desserts_media/cookie.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Печенье <br> 33 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/ice_info">
+        <img src="../media/desserts_media/ice.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Мороженое <br> 66 руб.</figcaption>
+</figure>
+<br><br>
+<figure>
+    <a href="/pie_info">
+        <img src="../media/desserts_media/pie.jpg" class="scale">
+    </a>
+    <figcaption class="text-center">Кусочек торта <br> 87 руб.</figcaption>
+</figure>
+<br><br>
+<a class="btn btn-info" href="/drinks_page" role="button">Назад</a>
+<a class="btn btn-info" href="/" role="button">На главную</a>
+{% endblock %}
